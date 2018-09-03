@@ -1,36 +1,40 @@
 package ru.zinnurov;
 
+// TODO: добавить javadocs для всех публичных методов и классов
 public class Library {
-    private int genre, choice;
-    private IT book;
+    private BookShelve[] shelves = new BookShelve[] {
+            new BookShelve(
+                   new Book("Совершенный код", Genre.IT),
+                   new Book("Справочник разработчика", Genre.IT),
+                   new Book("Алгоритмы", Genre.IT)
+            ),
+            new BookShelve(
+                    new Book("Дюна", Genre.FANTAZY),
+                    new Book("Властелин колец", Genre.FANTAZY)
+            ),
+    };
 
-
-    public void choiceGenre(int genre) {
-        this.genre = genre;
-
+    // TODO: использовать метод ordinal()
+    public void choiceBookByGenre(int choice) {
+        switch (choice) {
+            case 1:
+                giveMeABook(Genre.IT);
+                break;
+            case 2:
+                giveMeABook(Genre.FANTAZY);
+                break;
+            case 3:
+                giveMeABook(Genre.GASTRONOMY);
+                break;
+            case 4:
+                giveMeABook(Genre.HISTORY);
+                break;
+        }
     }
-    public void choiceBook(int choice) {
-        if(choice == 1) {
-            giveMeABook(IT.CODE_COMLITE);
-        }
-        else if(choice == 2) {
-            giveMeABook(IT.DEVELOPER_GUIDE);
-        }
-        else if(choice == 3) {
-            giveMeABook(IT.ALGORITHMS);
-        }
-        else {
-            giveMeABook(IT.DATABASE);
-        }
-    }
 
-    public void giveMeABook(IT book){
-        if (this.genre > 0) {
-                System.out.println("Возьмите вашу книгу: " + book.bookName);
+    // TODO: реализовать поиск по полкам, учесть, что на одной полке могут лежать книги разных жанров
+    private void giveMeABook(Genre genre){
 
-        } else {
-            System.out.println("Такого жанра нет!");
-        }
     }
 
 }

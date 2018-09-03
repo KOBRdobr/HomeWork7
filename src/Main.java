@@ -27,16 +27,10 @@ public class Main {
     }
 
     private static void choiceBook() {
-
         Library lib = new Library();
         int choice = input();
-        lib.choiceGenre(choice);
-
         System.out.println("Какая книга вам нужна?");
-        choice = input();
-        lib.choiceBook(choice);
-
-
+        lib.choiceBookByGenre(choice);
     }
 
     public static void main(String[] args) {
